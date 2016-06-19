@@ -117,12 +117,8 @@ public abstract class MixinEntity implements Entity, ICommandSender {
 
     @Nonnull
     public ImmutableList<Entity> entity$getPassengers() {
-        List<net.minecraft.entity.Entity> entities = this.shadow$getPassengers();
-        List<Entity> apiEntities = new ArrayList<>();
-        for (net.minecraft.entity.Entity entity : entities) {
-            apiEntities.add((Entity) entity);
-        }
-        return ImmutableList.copyOf(apiEntities);
+        List entities = this.shadow$getPassengers();
+        return ImmutableList.copyOf((List<Entity>) entities);
     }
 
     @Override
