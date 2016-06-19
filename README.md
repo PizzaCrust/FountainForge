@@ -9,8 +9,8 @@ The [Minecraft Forge] implementation of the [FountainAPI], licensed under the MI
 
 ## Cloning
 
-- SSH: `git clone git@github.com:FountainMC/FountainForge.git`
-- HTTPS: `git clone https://github.com/FountainMC/FountainForge.git`
+- SSH: `git clone --recursive git@github.com:FountainMC/FountainForge.git`
+- HTTPS: `git clone --recursive https://github.com/FountainMC/FountainForge.git`
 
 ## Building
 
