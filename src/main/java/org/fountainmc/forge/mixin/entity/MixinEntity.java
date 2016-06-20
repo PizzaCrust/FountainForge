@@ -46,9 +46,7 @@ import java.util.List;
 public abstract class MixinEntity implements Entity, ICommandSender {
 
     @Shadow public boolean onGround;
-
     @Shadow public float rotationPitch;
-
     @Shadow public float rotationYaw;
 
     @Shadow
