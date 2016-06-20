@@ -59,7 +59,7 @@ public abstract class MixinEntity implements Entity, ICommandSender {
     public abstract List<net.minecraft.entity.Entity> shadow$getPassengers();
 
     @Shadow
-    public abstract void shadow$addPassenger(net.minecraft.entity.Entity passenger);
+    public abstract void addPassenger(net.minecraft.entity.Entity passenger);
 
     @Shadow
     public abstract void removePassenger(net.minecraft.entity.Entity passenger);
@@ -125,7 +125,7 @@ public abstract class MixinEntity implements Entity, ICommandSender {
 
     @Override
     public boolean addPassenger(Entity entity, boolean force) {
-        this.shadow$addPassenger((net.minecraft.entity.Entity) entity);
+        this.addPassenger((net.minecraft.entity.Entity) entity);
         return true;
     }
 
@@ -146,7 +146,7 @@ public abstract class MixinEntity implements Entity, ICommandSender {
 
     @Override
     public void dismountVehicle() {
-        if (this.shadow$getPassengers().size() != 0) { return; }
+        if (this.shadow$getPassengers().size() != 0) return;
         this.getPrimaryPassenger().leaveVehicle();
     }
 
