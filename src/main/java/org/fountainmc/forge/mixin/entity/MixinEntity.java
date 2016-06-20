@@ -31,10 +31,7 @@ import net.minecraft.util.math.BlockPos;
 import org.fountainmc.api.entity.Entity;
 import org.fountainmc.api.world.Location;
 import org.fountainmc.api.world.World;
-import org.spongepowered.asm.mixin.Implements;
-import org.spongepowered.asm.mixin.Interface;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -113,6 +110,7 @@ public abstract class MixinEntity implements Entity, ICommandSender {
         return null;
     }
 
+    @Intrinsic
     @Nonnull
     public ImmutableList<Entity> entity$getPassengers() {
         List entities = this.shadow$getPassengers();
