@@ -113,8 +113,7 @@ public abstract class MixinEntity implements Entity, ICommandSender {
     @Intrinsic
     @Nonnull
     public ImmutableList<Entity> entity$getPassengers() {
-        List entities = this.shadow$getPassengers();
-        return ImmutableList.copyOf((List<Entity>) entities);
+        return ImmutableList.copyOf((List<Entity>)((List) this.shadow$getPassengers()));
     }
 
     @Override
@@ -164,11 +163,7 @@ public abstract class MixinEntity implements Entity, ICommandSender {
     @Override
     public ImmutableCollection<Entity> getNearbyEntities(double distance) {
         List<net.minecraft.entity.Entity> nmsEntities = this.getCommandSenderEntity().worldObj.getEntitiesWithinAABBExcludingEntity(this.getCommandSenderEntity(), this.getCommandSenderEntity().getEntityBoundingBox().expand(distance / 3, distance / 3, distance / 3));
-        List<Entity> apiEntities = new ArrayList<>();
-        for (net.minecraft.entity.Entity entity : nmsEntities) {
-            apiEntities.add((Entity) entity);
-        }
-        return ImmutableList.copyOf(apiEntities);
+        return ImmutableList.copyOf(((List<Entity>)((List) nmsEntities)));
     }
 
 }
